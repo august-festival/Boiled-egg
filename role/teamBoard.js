@@ -81,10 +81,10 @@ module.export = {
             D: true
         },
         card_assignee: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         activity: {
             C: true,
@@ -93,34 +93,34 @@ module.export = {
             D: false
         },
         list: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         card: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         comment: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         work_info: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         check_list: {
-            C: false,
+            C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         team_member: {
             C: false,
