@@ -1,19 +1,21 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('team', {
-            team_idx: {
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true,
+        return queryInterface.createTable('activity', {
+            board_idx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            visibilityType: {
+            user_idx: {
+                type: Sequelize.BIGINT.UNSIGNED
+            },
+            descript: {
+                type: Sequelize.STRING
+            },
+            activityType: {
                 type: Sequelize.STRING(30)
             },
-            delFlag: {
-                type: Sequelize.CHAR(1),
-                defaultValue: 'N'
+            url: {
+                type: Sequelize.STRING
             },
             regDate: {
                 type: Sequelize.DATE,
@@ -22,6 +24,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('team');
+        return queryInterface.dropTable('activity');
     }
 };

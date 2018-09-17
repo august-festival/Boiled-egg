@@ -1,8 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-    const confirmTeam = sequelize.define("confirm_team", {
-        team_idx: DataTypes.BIGINT,
-        user_idx: DataTypes.BIGINT
-    }, {});
+    const confirm_team = sequelize.define("confirm_team", {
+        team_idx: {
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.BIGINT.UNSIGNED
+        },
+        user_idx: {
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.BIGINT.UNSIGNED
+        }
+    }, {
+        tableName: "confirm_team",
+        timestamps: false,
+        comment: "팀 초대"
+    });
 
-    return confirmTeam;
+    return confirm_team;
 };

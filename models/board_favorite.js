@@ -1,23 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-    const team_member = sequelize.define("team_member", {
-        team_idx: {
-            allowNull: false,
-            primaryKey: true,
-            type: DataTypes.BIGINT.UNSIGNED
-        },
+    const board_favorite = sequelize.define("board_favorite", {
         user_idx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        roleType: {
-            type: DataTypes.STRING(30)
+        board_idx: {
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.BIGINT.UNSIGNED
         }
     }, {
-        tableName: "team_member",
+        tableName: "board_favorite",
         timestamps: false,
-        comment: "팀 멤버"
+        comment: "보드 즐겨찾기"
     });
 
-    return team_member;
+    return board_favorite;
 };

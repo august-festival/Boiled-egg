@@ -1,15 +1,19 @@
 {
     "production": {
-        "port" : 8080,
-        "db" : "production"
+        "port": 8080,
+        "db": "production"
     },
     "development": {
-        "port" : 3000,
-        "db" : "development"
+        "port": 3000,
+        "db": "development"
     },
     "jihoon": {
-        "port" : 3000,
-        "db" : "jihoon"
+        "port": 3000,
+        "db": "jihoon"
+    },
+    "lsh": {
+        "port": 3000,
+        "db": "lsh"
     },
 
     "avoidAcl": {

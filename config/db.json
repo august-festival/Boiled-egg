@@ -32,5 +32,12 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "postgresql"
+  },
+  "lsh": {
+    "username": "root",
+    "password": "1234",
+    "database": "root",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
   }
 }

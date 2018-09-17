@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-  const oauthId = sequelize.define("oauth_id", {
+  const oauth_id = sequelize.define("oauth_id", {
     oauth_idx: {
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.BIGINT,
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
     },
     // user_idx: {
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     //   },
     // },
     user_idx: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
     },
     accessId: {
@@ -33,14 +33,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     regDate: {
-      type: DataTypes.DATE, 
+      type: DataTypes.DATE,
       defaultValue: DataTypes.NOW
     }
   }, {
     tableName: "oauth_id",
     timestamps: false,
-    underscored : true,
-    comment : "Oauth 인증 테이블"
+    underscored: true,
+    comment: "Oauth 인증 테이블"
   });
-  return oauthId;
+  return oauth_id;
 };

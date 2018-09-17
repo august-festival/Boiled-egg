@@ -35,7 +35,7 @@ module.exports = {
         allowNull: true
       },
       regDate: {
-        type: Sequelize.DATE, 
+        type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
       }
     });
