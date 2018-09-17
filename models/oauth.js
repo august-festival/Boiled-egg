@@ -6,18 +6,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BIGINT,
       allowNull: false,
     },
-    // user_idx: {
-    //   type: DataTypes.BIGINT.UNSIGNED,
-    //   allowNull: false,
-    //   references: {
-    //     model: "user",
-    //     key: "user_idx"
-    //   },
-    // },
     user_idx: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
-    },
+      references: {
+        model: "user",
+        key: "user_idx"
+      },
+    },    
     accessId: {
       type: DataTypes.STRING,
       allowNull: true,

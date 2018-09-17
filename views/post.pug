@@ -1,0 +1,6 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/users/login", method="post")
+    button(type="submit") 전송
