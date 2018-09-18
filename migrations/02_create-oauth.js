@@ -8,14 +8,18 @@ module.exports = {
         type: Sequelize.BIGINT.UNSIGNED,
         allowNull: false,
       },
+      // user_idx: {
+      //   type: Sequelize.BIGINT.UNSIGNED,
+      //   allowNull: false,
+      //   references: {
+      //     model: 'user',
+      //     key: 'user_idx'
+      //   },
+      // },
       user_idx: {
         type: Sequelize.BIGINT.UNSIGNED,
         allowNull: false,
-        references: {
-          model: 'user',
-          key: 'user_idx'
-        },
-      },      
+      },
       accessId: {
         type: Sequelize.STRING,
         allowNull: true,

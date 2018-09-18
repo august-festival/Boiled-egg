@@ -1,11 +1,8 @@
 const express = require("express");
-const session = require("express-session");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
-const passport = require("passport");
-const passportConfig = require('./passport');
 const bodyParser = require("body-parser");
 
 const index = require("./routes/index");
@@ -24,11 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session({ secret: 'egg', resave: true, saveUninitialized: false }));
-app.use(passport.initialize());
-app.use(passport.session());
 
-passportConfig();
 app.use("/", index);
 app.use("/users", users);
 
