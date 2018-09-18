@@ -30,17 +30,19 @@ module.exports = (sequelize, DataTypes) => {
     delFlag: {
       type: DataTypes.CHAR,
       allowNull: false,
-      defaultValue: "N"
+      defaultValue : "N"
     },
     regDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATE, 
       defaultValue: DataTypes.NOW
     },
   }, {
     tableName: "user",
     timestamps: false,
-    underscored: true,
-    comment: "회원 사용자 테이블"
+    underscored : true,
+    comment : "회원 사용자 테이블"
   });
   return user;
 };
+
+
