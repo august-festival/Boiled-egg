@@ -32,12 +32,12 @@ module.exports = {
       delFlag: {
         type: Sequelize.CHAR,
         allowNull: true,
-        defaultValue : "N"
+        defaultValue: "N"
       },
       regDate: {
-        type: Sequelize.DATE, 
+        type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
-      },        
+      },
     });
   },
   down: (queryInterface, Sequelize) => {

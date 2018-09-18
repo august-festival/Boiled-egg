@@ -5,12 +5,12 @@ module.exports = {
             team_idx: {
                 allowNull: false,
                 primaryKey: true,
-                type: Sequelize.BIGINT
+                type: Sequelize.BIGINT.UNSIGNED
             },
             user_idx: {
                 allowNull: false,
                 primaryKey: true,
-                type: Sequelize.BIGINT
+                type: Sequelize.BIGINT.UNSIGNED
             }
         });
     },

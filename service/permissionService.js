@@ -3,11 +3,11 @@
  */
 
 const {
-    teamMember,
+    team_member,
     board,
     list,
     card,
-    workInfo,
+    work,
     comment
 } = require("../models");
 
@@ -23,7 +23,7 @@ const permission = {
     list: null,
     card: null,
     comment: null,
-    work_info: null,
+    work: null,
     check_list: null,
     team_member: null,
     confirm_team: null
@@ -36,7 +36,7 @@ module.export = function (option) {
 
 // role 조회
 function getRole(team_idx, user_idx) {
-    return teamMember.findAll({
+    return team_member.findAll({
         attributes: ["roleType"],
         where: {
             team_idx: team_idx,
@@ -85,11 +85,11 @@ function getCard_idx(type, idx) {
                     comment_idx: idx
                 }
             });
-        case "work_info_idx":
-            return workInfo.findAll({
+        case "work_idx":
+            return work.findAll({
                 attributes: ["card_idx"],
                 where: {
-                    work_info_idx: idx
+                    work_idx: idx
                 }
             });
     }
@@ -178,11 +178,11 @@ permission.comment = function (option) {
 };
 
 // 작업정보
-permission.work_info = function (option) {
+permission.work = function (option) {
     if (option.action === "C") {
         return getIdx(option, "card_idx");
     } else {
-        const card_idx = getCard_idx("work_info_idx", option.work_info_idx);
+        const card_idx = getCard_idx("work_idx", option.work_info_idx);
         if (!card_idx) return false;
         option.card_idx = card_idx;
         return getIdx(option, "card_idx");
@@ -191,7 +191,7 @@ permission.work_info = function (option) {
 
 // 체크리스트
 permission.check_list = function (option) {
-    const card_idx = getCard_idx("work_info_idx", option.work_info_idx);
+    const card_idx = getCard_idx("work_idx", option.work_info_idx);
     if (!card_idx) return false;
     option.card_idx = card_idx;
     return getIdx(option, "card_idx");

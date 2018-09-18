@@ -1,23 +1,20 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('team_member', {
-            team_idx: {
-                allowNull: false,
-                primaryKey: true,
-                type: Sequelize.BIGINT.UNSIGNED
-            },
+        return queryInterface.createTable('card_assignee', {
             user_idx: {
                 allowNull: false,
                 primaryKey: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            roleType: {
-                type: Sequelize.STRING(30)
+            card_idx: {
+                allowNull: false,
+                primaryKey: true,
+                type: Sequelize.BIGINT.UNSIGNED
             }
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('team_member');
+        return queryInterface.dropTable('card_assignee');
     }
 };
