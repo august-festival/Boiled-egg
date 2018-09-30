@@ -9,6 +9,12 @@ module.exports = {
         boardType: 'TEAM',
         visibilityType: 'PRIVATE'
       },
+      {
+        user_idx: 1,
+        name: '개인용 보드',
+        boardType: 'USER',
+        visibilityType: 'PRIVATE'
+      },
     ], {});
   },
   down: (queryInterface, Sequelize) => {

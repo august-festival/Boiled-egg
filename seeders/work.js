@@ -8,6 +8,11 @@ module.exports = {
         workType: "CHECKLIST",
         name: "settings"
       },
+      {
+        card_idx: 2,
+        workType: "CHECKLIST",
+        name: "settings"
+      },
     ], {});
   },
   down: (queryInterface, Sequelize) => {

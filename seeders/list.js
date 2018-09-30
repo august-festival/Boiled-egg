@@ -18,6 +18,11 @@ module.exports = {
         name: "done",
         displayOrder: 3
       },
+      {
+        board_idx: 2,
+        name: "개인보드리스트",
+        displayOrder: 1
+      },
     ], {});
   },
   down: (queryInterface, Sequelize) => {

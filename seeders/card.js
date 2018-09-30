@@ -9,6 +9,12 @@ module.exports = {
         descript: "프로젝트 세팅에 대한 카드",
         displayOrder: 1
       },
+      {
+        list_idx: 4,
+        name: "개인보드 프로젝트 셋팅",
+        descript: "프로젝트 세팅에 대한 카드",
+        displayOrder: 1
+      },
     ], {});
   },
   down: (queryInterface, Sequelize) => {
