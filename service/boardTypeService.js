@@ -12,7 +12,7 @@ const {
 
 // 보드타입체크 테이블분기 처리
 const boardTypeTable = {
-    // 팀보드
+    // 보드
     board(option) {
         return boardType(option, "board_idx");
     },
@@ -27,21 +27,21 @@ const boardTypeTable = {
     // 댓글
     async comment(option) {
         const card_idx = await getCard_idx("comment_idx", option.idx);
-        if (!card_idx) return false;
+        if (!card_idx) return null;
         option.idx = card_idx;
         return boardType(option, "card_idx");
     },
     // 작업정보
     async work(option) {
         const card_idx = await getCard_idx("work_idx", option.idx);
-        if (!card_idx) return false;
+        if (!card_idx) return null;
         option.idx = card_idx;
         return boardType(option, "card_idx");
     },
     // 체크리스트
     async check_list(option) {
         const card_idx = await getCard_idx("work_idx", option.idx);
-        if (!card_idx) return false;
+        if (!card_idx) return null;
         option.idx = card_idx;
         return boardType(option, "card_idx");
     }
