@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node_modules/.bin/mocha $(find ./test/ -name '*.spec.js') --recursive",
     "devel-start": "node ./bin/www ; # init database default env",
-    "lsh": "sequelize db:migrate --config=config/db.json --env=lsh && node ./bin/www ;",
+    "lsh": "sequelize db:migrate:undo:all --config=config/db.json --env=lsh && sequelize db:migrate --config=config/db.json --env=lsh && sequelize db:seed:all --config=config/db.json --env=lsh && node ./bin/www ;",
+    "test-lsh": "node ./node_modules/mocha/bin/mocha ./test/permission.spec.js",
     "start": "node ./bin/www"
   },
   "repository": {
@@ -48,6 +49,5 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.18.4"
-
   }
 }
