@@ -9,7 +9,7 @@ module.exports = {
         board_favorite: {
             C: true,
             R: true,
-            U: false,
+            U: true,
             D: true
         },
         card_assignee: {
@@ -42,7 +42,7 @@ module.exports = {
             U: true,
             D: true
         },
-        work_info: {
+        work: {
             C: true,
             R: true,
             U: true,
@@ -77,7 +77,7 @@ module.exports = {
         board_favorite: {
             C: true,
             R: true,
-            U: false,
+            U: true,
             D: true
         },
         card_assignee: {
@@ -89,8 +89,8 @@ module.exports = {
         activity: {
             C: true,
             R: true,
-            U: false,
-            D: false
+            U: true,
+            D: true
         },
         list: {
             C: true,
@@ -110,7 +110,7 @@ module.exports = {
             U: true,
             D: true
         },
-        work_info: {
+        work: {
             C: true,
             R: true,
             U: true,

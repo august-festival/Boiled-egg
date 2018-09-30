@@ -8,6 +8,9 @@ module.exports = {
                 autoIncrement: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
+            name: {
+                type: Sequelize.STRING
+            },
             visibilityType: {
                 type: Sequelize.STRING(30)
             },

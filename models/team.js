@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
+        name: {
+            type: DataTypes.STRING
+        },
         visibilityType: {
             type: DataTypes.STRING(30)
         },

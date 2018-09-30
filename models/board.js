@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
         team_idx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
+        name: {
+            type: DataTypes.STRING
+        },
         boardType: {
             type: DataTypes.STRING(30)
         },
