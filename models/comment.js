@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
     const comment = sequelize.define("comment", {
-        comment_idx: {
+        commentIdx: {
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        user_idx: {
+        userIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
-        card_idx: {
+        cardIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
         comment: {

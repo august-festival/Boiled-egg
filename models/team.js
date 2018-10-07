@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const team = sequelize.define("team", {
-        team_idx: {
+        teamIdx: {
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,

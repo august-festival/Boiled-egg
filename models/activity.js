@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
     const activity = sequelize.define("activity", {
-        board_idx: {
+        boardIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
-        user_idx: {
+        userIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
         descript: {

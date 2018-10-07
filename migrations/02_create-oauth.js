@@ -2,18 +2,18 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('oauth_id', {
-      oauth_idx: {
+      oauthIdx: {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.BIGINT.UNSIGNED,
         allowNull: false,
       },
-      user_idx: {
+      userIdx: {
         type: Sequelize.BIGINT.UNSIGNED,
         allowNull: false,
         references: {
           model: 'user',
-          key: 'user_idx'
+          key: 'userIdx'
         },
       },      
       accessId: {

@@ -4,13 +4,13 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("comment", [
       {
-        user_idx: 1,
-        card_idx: 1,
+        userIdx: 1,
+        cardIdx: 1,
         comment: "팀 ADMIN 첫번째 댓글",
       },
       {
-        user_idx: 1,
-        card_idx: 2,
+        userIdx: 1,
+        cardIdx: 2,
         comment: "개인보드 첫번째 댓글",
       },
     ], {});

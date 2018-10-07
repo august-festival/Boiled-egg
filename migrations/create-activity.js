@@ -2,10 +2,10 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('activity', {
-            board_idx: {
+            boardIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            user_idx: {
+            userIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
             descript: {

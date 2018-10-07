@@ -2,12 +2,12 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('card_assignee', {
-            user_idx: {
+            userIdx: {
                 allowNull: false,
                 primaryKey: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            card_idx: {
+            cardIdx: {
                 allowNull: false,
                 primaryKey: true,
                 type: Sequelize.BIGINT.UNSIGNED

@@ -10,7 +10,7 @@ module.exports = (passport, secret, user) => {
         user.findAll({where : { email : profile._json.email }})
             .then((result) => {                
                 if(result[0]){                    
-                    done(null, result[0].get().user_idx);
+                    done(null, result[0].get().userIdx);
                 } else {                                    
                     profile._json.provider = "facebook";
                     profile._json.accessTK = accessToken;

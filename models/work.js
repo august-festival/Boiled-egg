@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const work = sequelize.define("work", {
-        work_idx: {
+        workIdx: {
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        card_idx: {
+        cardIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
         workType: {

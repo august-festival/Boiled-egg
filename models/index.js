@@ -3,7 +3,7 @@ const path = require("path");
 const Sequelize = require("sequelize");
 
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "test";
+const env = process.env.NODE_ENV || "lsh";
 const config = require(`${__dirname}/../config/db.json`)[env];
 const db = {};
 console.log("db config", config);

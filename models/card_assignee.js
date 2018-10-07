@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
     const card_assignee = sequelize.define("card_assignee", {
-        user_idx: {
+        userIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        card_idx: {
+        cardIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED

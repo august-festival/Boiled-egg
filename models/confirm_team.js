@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
     const confirm_team = sequelize.define("confirm_team", {
-        team_idx: {
+        teamIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        user_idx: {
+        userIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED

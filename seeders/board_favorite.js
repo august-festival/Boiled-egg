@@ -4,8 +4,8 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("board_favorite", [
       {
-        user_idx: 1,
-        board_idx: 1
+        userIdx: 1,
+        boardIdx: 1
       },
     ], {});
   },
