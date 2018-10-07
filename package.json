@@ -9,7 +9,8 @@
     "lsh": "sequelize db:migrate:undo:all --config=config/db.json --env=lsh && sequelize db:migrate --config=config/db.json --env=lsh && sequelize db:seed:all --config=config/db.json --env=lsh",
     "test-lsh": "node ./node_modules/mocha/bin/mocha ./test/permissionTeamBoard.spec.js",
     "start": "node ./bin/www",
-    "test:board": "rm .sqlite_tmp.db; ./node_modules/.bin/sequelize db:migrate --config=config/db.json --env=test && ./node_modules/.bin/mocha test/board.spec.js  --config=config/db.json --env=test"
+    "sequelize:migrate": "./node_modules/.bin/sequelize db:migrate --config=config/db.json",
+    "test:board": "rm .sqlite_tmp.db; NODE_ENV=test npm run sequelize:migrate; NODE_ENV=test ./node_modules/.bin/mocha test/board.spec.js  --config=config/db.json "
   },
   "repository": {
     "type": "git",
