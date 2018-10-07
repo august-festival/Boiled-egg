@@ -1,22 +1,21 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('team', {
-            team_idx: {
+        return queryInterface.createTable('comment', {
+            comment_idx: {
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            name: {
+            user_idx: {
+                type: Sequelize.BIGINT.UNSIGNED
+            },
+            card_idx: {
+                type: Sequelize.BIGINT.UNSIGNED
+            },
+            comment: {
                 type: Sequelize.STRING
-            },
-            visibilityType: {
-                type: Sequelize.STRING(30)
-            },
-            delFlag: {
-                type: Sequelize.CHAR(1),
-                defaultValue: 'N'
             },
             regDate: {
                 type: Sequelize.DATE,
@@ -25,6 +24,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('team');
+        return queryInterface.dropTable('comment');
     }
 };

@@ -1,30 +1,32 @@
 module.exports = (sequelize, DataTypes) => {
-    const team = sequelize.define("team", {
-        team_idx: {
+    const card = sequelize.define("card", {
+        card_idx: {
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
+        list_idx: {
+            type: DataTypes.BIGINT.UNSIGNED
+        },
         name: {
             type: DataTypes.STRING
         },
-        visibilityType: {
-            type: DataTypes.STRING(30)
+        descript: {
+            type: DataTypes.STRING
         },
-        delFlag: {
-            type: DataTypes.CHAR(1),
-            defaultValue: 'N'
+        displayOrder: {
+            type: DataTypes.INTEGER
         },
         regDate: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         }
     }, {
-        tableName: "team",
+        tableName: "card",
         timestamps: false,
-        comment: "팀"
+        comment: "카드"
     });
 
-    return team;
+    return card;
 };

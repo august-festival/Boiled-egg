@@ -11,7 +11,7 @@
     "username": null,
     "password": null,
     "dialect": "sqlite",
-    "storage": ":memory:",
+    "storage": ".sqlite_tmp.db",
     "operatorsAliases": false
   },
   "local": {
@@ -30,6 +30,20 @@
     "username": "root",
     "password": null,
     "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "lsh": {
+    "username": "root",
+    "password": "1234",
+    "database": "root",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  },
+  "ws": {
+    "username": "postgres",
+    "password": "qwer1234",
+    "database": "augustfestival",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   }
