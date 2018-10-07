@@ -648,3 +648,7 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/vim,node,macos,windows,webstorm,visualstudio,webstorm+iml,webstorm+all,visualstudiocode
+
+
+## tmp sqlite db file for test
+.sqlite_tmp.db

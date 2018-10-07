@@ -11,7 +11,7 @@
     "username": null,
     "password": null,
     "dialect": "sqlite",
-    "storage": ":memory:",
+    "storage": ".sqlite_tmp.db",
     "operatorsAliases": false
   },
   "local": {
