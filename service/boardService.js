@@ -2,7 +2,6 @@
  * 보드에 대한 일들은 이놈이 다할 거임
  */
 
-// const Board = require("../models/board");
 const Board = require("../models").board;
 
 const board = {

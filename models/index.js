@@ -1,12 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
-console.log('model', process.env.NODE_ENV);
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "test";
-const config = require(`${__dirname }/../config/db.json`)[env];
+const config = require(`${__dirname}/../config/db.json`)[env];
 const db = {};
+console.log("db config", config);
 
 let sequelize;
 if (config.use_env_variable) {
