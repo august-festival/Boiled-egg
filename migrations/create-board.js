@@ -14,6 +14,9 @@ module.exports = {
         teamIdx: {
             type: Sequelize.BIGINT.UNSIGNED,
         },
+        name: {
+            type: Sequelize.STRING,
+        },
         boardType: {
             type: Sequelize.STRING(30),
         },
