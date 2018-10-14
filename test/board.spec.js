@@ -35,7 +35,7 @@ describe("보드", () => {
         });
     });
     
-    describe("수정할 때", () => {
+    describe("수정할 때", async () => {
         // given
         const user_idx = 123; // dummy user 를 만들어사 가져오자...
         const created_board = await sut.create(user_idx);
@@ -52,7 +52,7 @@ describe("보드", () => {
         console.log(modified_board.name);
         assert.equal(modified_board.name, dict.name);
     });
-    describe("삭제할 때", () => {
+    describe("삭제할 때", async () => {
         // given
         const user_idx = 123; // dummy user 를 만들어사 가져오자...
         const created_board = await sut.create(user_idx);
