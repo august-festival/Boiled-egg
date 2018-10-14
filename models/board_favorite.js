@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
     const board_favorite = sequelize.define("board_favorite", {
-        user_idx: {
+        userIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        board_idx: {
+        boardIdx: {
             allowNull: false,
             primaryKey: true,
             type: DataTypes.BIGINT.UNSIGNED

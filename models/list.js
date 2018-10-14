@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const list = sequelize.define("list", {
-        list_idx: {
+        listIdx: {
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
             type: DataTypes.BIGINT.UNSIGNED
         },
-        board_idx: {
+        boardIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
         name: {

@@ -4,12 +4,12 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("work", [
       {
-        card_idx: 1,
+        cardIdx: 1,
         workType: "CHECKLIST",
         name: "settings"
       },
       {
-        card_idx: 2,
+        cardIdx: 2,
         workType: "CHECKLIST",
         name: "settings"
       },

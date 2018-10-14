@@ -2,13 +2,13 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('list', {
-            list_idx: {
+            listIdx: {
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            board_idx: {
+            boardIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
             name: {

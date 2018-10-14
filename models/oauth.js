@@ -1,17 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
   const oauthId = sequelize.define("oauth_id", {
-    oauth_idx: {
+    oauthIdx: {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.BIGINT,
       allowNull: false,
     },
-    user_idx: {
+    userIdx: {
       type: DataTypes.BIGINT.UNSIGNED,
       allowNull: false,
       references: {
         model: "user",
-        key: "user_idx"
+        key: "userIdx"
       },
     },    
     accessId: {

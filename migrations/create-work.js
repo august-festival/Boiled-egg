@@ -2,13 +2,13 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('work', {
-            work_idx: {
+            workIdx: {
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            card_idx: {
+            cardIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
             workType: {

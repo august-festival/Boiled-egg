@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV1
         },
-        work_idx: {
+        workIdx: {
             type: DataTypes.BIGINT.UNSIGNED
         },
         name: {

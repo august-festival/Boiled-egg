@@ -57,7 +57,7 @@ const userObj = {
         .then((userResult) => {
             if(userResult){                
                 return oauth_id.create({
-                                user_idx: userResult.get().user_idx
+                                userIdx: userResult.get().userIdx
                                 , accessId : oauthInfo.id
                                 , accessToken : oauthInfo.accessTK
                                 , providerType : oauthInfo.provider

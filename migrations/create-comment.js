@@ -2,16 +2,16 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('comment', {
-            comment_idx: {
+            commentIdx: {
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            user_idx: {
+            userIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
-            card_idx: {
+            cardIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
             comment: {

@@ -8,7 +8,7 @@ module.exports = {
                 type: Sequelize.UUID,
                 defaultValue: Sequelize.UUIDV1
             },
-            work_idx: {
+            workIdx: {
                 type: Sequelize.BIGINT.UNSIGNED
             },
             name: {

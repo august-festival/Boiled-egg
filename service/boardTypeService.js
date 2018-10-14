@@ -14,111 +14,111 @@ const {
 const boardTypeTable = {
     // 보드
     board(option) {
-        return boardType(option, "board_idx");
+        return boardType(option, "boardIdx");
     },
     // 리스트
     list(option) {
-        return boardType(option, "list_idx");
+        return boardType(option, "listIdx");
     },
     // 카드
     card(option) {
-        return boardType(option, "card_idx");
+        return boardType(option, "cardIdx");
     },
     // 댓글
     async comment(option) {
-        const card_idx = await getCard_idx("comment_idx", option.idx);
-        if (!card_idx) return null;
-        option.idx = card_idx;
-        return boardType(option, "card_idx");
+        const cardIdx = await getCardIdx("commentIdx", option.idx);
+        if (!cardIdx) return null;
+        option.idx = cardIdx;
+        return boardType(option, "cardIdx");
     },
     // 작업정보
     async work(option) {
-        const card_idx = await getCard_idx("work_idx", option.idx);
-        if (!card_idx) return null;
-        option.idx = card_idx;
-        return boardType(option, "card_idx");
+        const cardIdx = await getCardIdx("workIdx", option.idx);
+        if (!cardIdx) return null;
+        option.idx = cardIdx;
+        return boardType(option, "cardIdx");
     },
     // 체크리스트
     async check_list(option) {
-        const card_idx = await getCard_idx("work_idx", option.idx);
-        if (!card_idx) return null;
-        option.idx = card_idx;
-        return boardType(option, "card_idx");
+        const cardIdx = await getCardIdx("workIdx", option.idx);
+        if (!cardIdx) return null;
+        option.idx = cardIdx;
+        return boardType(option, "cardIdx");
     }
 };
 
 // 보드타입 조회
-async function getBoardType(board_idx) {
+async function getBoardType(boardIdx) {
     const rs = await board.findOne({
         attributes: ["boardType"],
         where: {
-            board_idx: board_idx
+            boardIdx: boardIdx
         }
     });
     return rs.dataValues.boardType;
 }
 
 // 보드시퀀스 조회
-async function getBoard_idx(list_idx) {
+async function getBoardIdx(listIdx) {
     const rs = await list.findOne({
-        attributes: ["board_idx"],
+        attributes: ["boardIdx"],
         where: {
-            list_idx: list_idx
+            listIdx: listIdx
         }
     });
-    return rs.dataValues.board_idx;
+    return rs.dataValues.boardIdx;
 }
 
 // 리스트시퀀스 조회
-async function getList_idx(card_idx) {
+async function getListIdx(cardIdx) {
     const rs = await card.findOne({
-        attributes: ["list_idx"],
+        attributes: ["listIdx"],
         where: {
-            card_idx: card_idx
+            cardIdx: cardIdx
         }
     });
-    return rs.dataValues.list_idx;
+    return rs.dataValues.listIdx;
 }
 
 // 카드시퀀스 조회
-async function getCard_idx(type, idx) {
+async function getCardIdx(type, idx) {
     let rs = null;
     switch (type) {
-        case "comment_idx":
+        case "commentIdx":
             rs = await comment.findOne({
-                attributes: ["card_idx"],
+                attributes: ["cardIdx"],
                 where: {
-                    comment_idx: idx
+                    commentIdx: idx
                 }
             });
             break;
-        case "work_idx":
+        case "workIdx":
             rs = await work.findOne({
-                attributes: ["card_idx"],
+                attributes: ["cardIdx"],
                 where: {
-                    work_idx: idx
+                    workIdx: idx
                 }
             });
             break;
     }
-    return rs.dataValues.card_idx;
+    return rs.dataValues.cardIdx;
 }
 
 // 시퀀스에 따른 분기 및 boardType 반환
 async function boardType(option, idxType) {
-    let boardType, board_idx, list_idx, card_idx;
+    let boardType, boardIdx, listIdx, cardIdx;
     switch (idxType) {
-        case "card_idx":
-            if (idxType === "card_idx") card_idx = option.idx;
-            list_idx = await getList_idx(card_idx);
-            if (!list_idx) return null;
-        case "list_idx":
-            if (idxType === "list_idx") list_idx = option.idx;
-            board_idx = await getBoard_idx(list_idx);
-            if (!board_idx) return null;
-        case "board_idx":
-            if (idxType === "board_idx") board_idx = option.idx;
-            boardType = await getBoardType(board_idx);
+        case "cardIdx":
+            if (idxType === "cardIdx") cardIdx = option.idx;
+            listIdx = await getListIdx(cardIdx);
+            if (!listIdx) return null;
+        case "listIdx":
+            if (idxType === "listIdx") listIdx = option.idx;
+            boardIdx = await getBoardIdx(listIdx);
+            if (!boardIdx) return null;
+        case "boardIdx":
+            if (idxType === "boardIdx") boardIdx = option.idx;
+            boardType = await getBoardType(boardIdx);
             if (!boardType) return null;
             break;
     }
