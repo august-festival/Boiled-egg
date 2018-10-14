@@ -28,38 +28,30 @@ module.exports = table => {
         // board 타입 체크
         const boardType = await boardTypeService(table, idx);
 
+        const permission = null;
+
         // 팀보드에 대한 퍼미션 체크
         if(boardType === "TEAM") {
-            const permission = permissionTeamBoardService(table);
-            if(req.method === "POST") {
-                const rs = await permission.insert(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "GET") {
-                const rs = await permission.select(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "PUT") {
-                const rs = await permission.update(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "DELETE") {
-                const rs = await permission.delete(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }
+            permission = permissionTeamBoardService(table);
         // 개인보드에 대한 퍼미션 체크
         }else if(boardType === "USER") {
-            const permission = permissionUserService(table);
-            if(req.method === "POST") {
-                const rs = await permission.insert(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "GET") {
-                const rs = await permission.select(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "PUT") {
-                const rs = await permission.update(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }else if(req.method === "DELETE") {
-                const rs = await permission.delete(userIdx, idx);
-                permissionCheck(rs, res, next);
-            }
+            permission = permissionUserService(table);
         }
+
+        // CRUD 분기처리
+        if(req.method === "POST") {
+            const rs = await permission.insert(userIdx, idx);
+            permissionCheck(rs, res, next);
+        }else if(req.method === "GET") {
+            const rs = await permission.select(userIdx, idx);
+            permissionCheck(rs, res, next);
+        }else if(req.method === "PUT") {
+            const rs = await permission.update(userIdx, idx);
+            permissionCheck(rs, res, next);
+        }else if(req.method === "DELETE") {
+            const rs = await permission.delete(userIdx, idx);
+            permissionCheck(rs, res, next);
+        }
+
     }
 }
