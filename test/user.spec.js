@@ -1,5 +1,5 @@
 const assert = require("assert");
-const sut = require("service/userService");
+const sut = require("../service/userService");
 
 describe("사용자 테스트", () => {
     describe("사용자를 추가할 수 있다.", () => {

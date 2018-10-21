@@ -1,5 +1,5 @@
 const assert = require("assert");
-const sut = require("../service/activity");
+// const sut = require("../service/activity");
 
 // 보드에 종속
 
