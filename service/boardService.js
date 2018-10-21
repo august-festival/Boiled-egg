@@ -16,6 +16,10 @@ const board = {
             },
         });
     },
+    all() {
+        // user 말고 다른 애들로도 찾을 수 있을 듯.... 일단 유저로... 나중에 수정할 때 추상화 ㄲㄲ
+        return Board.all();
+    },
 };
 
 module.exports = board;
