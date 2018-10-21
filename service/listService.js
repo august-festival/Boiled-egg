@@ -16,7 +16,7 @@ const list = {
             },
         });
     },
-    findByBoardIdx(boardIdx) {
+    findByListIdx(boardIdx) {
         // board의 idx를 이용하여 찾을 수 있음
         // 유니크 하니까 하나만 나와야함 findAll 말고 find있으면 좋을것 같음.
         // list 아님 유일
@@ -28,14 +28,14 @@ const list = {
     },
     modify(boardIdx, res) {
         // res에 바꿀 내용 다 들어있음
-        const targetList = this.findByBoardIdx(listIdx);
+        const targetList = this.findByListIdx(listIdx);
         // 이름만 우선
         targetList.name = res.name;
 
         return targetList;
     },
     delete(boardIdx) {
-        const targetList = this.findByBoardIdx(listIdx);
+        const targetList = this.findByListIdx(listIdx);
         targetList.delflag = true;
 
         return targetList;
