@@ -21,7 +21,7 @@ module.exports = table => {
         const userIdx = 1;
         if(!userIdx) permissionCheck(false, res, next);
         // 테이블에 따라 값을 받을 파라메터 idx 이름 분기처리 필요
-        // const idx = req.idx;
+        // const idx = req.params.id;
         const idx = 2;
         if(!idx) permissionCheck(false, res, next);
 
