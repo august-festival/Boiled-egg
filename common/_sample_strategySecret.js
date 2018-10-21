@@ -1,4 +1,6 @@
-//실제 키 값들은 strategySecret.js에 있고 슬랭에 #secret에 업로드 파일로 엎어치면 되겠습니다.
+// 이 파일은 샘플임
+// 실제 키 파일은 .strategySecret.js <- 파일을 참조하기 바람
+// 실제 키 값들은 strategySecret.js에 있고 슬랭에 #secret에 업로드 파일로 엎어치면 되겠습니다.
 
 module.exports = {    
     "federation" : {

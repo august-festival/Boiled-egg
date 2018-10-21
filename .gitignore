@@ -652,3 +652,6 @@ ASALocalRun/
 
 ## tmp sqlite db file for test
 .sqlite_tmp.db
+
+## passport strategy secret file
+common/.strategySecret.js

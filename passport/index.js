@@ -1,6 +1,6 @@
 const passport = require("passport");
 const { user } = require("../models");
-const secret = require("../common/strategySecret");
+const secret = require("../common/.strategySecret");
 const facebook = require("./authentication/facebook");
 const google = require("./authentication/google");
 const naver = require("./authentication/naver");
