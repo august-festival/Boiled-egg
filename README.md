@@ -23,7 +23,7 @@ sqlite: 10.9.0
     * 가이드 추가한 사람이 고쳐주기
 #### test
 * test framework : mocha
-* 테스트 수행 : `npm test`
+* 테스트 수행 : `NODE_ENV=test npm test --config=config/db.json`
 * 테스트 파일 위치 : &lt;Document Root&gt;/test/
 * 테스트 파일 prefix : XXX.spec.js
 
