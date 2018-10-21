@@ -10,7 +10,8 @@
     "test-lsh": "node ./node_modules/mocha/bin/mocha ./test/permissionTeamBoard.spec.js",
     "start": "node ./bin/www",
     "sequelize:migrate": "./node_modules/.bin/sequelize db:migrate --config=config/db.json",
-    "test:board": "rm .sqlite_tmp.db; NODE_ENV=test npm run sequelize:migrate; NODE_ENV=test ./node_modules/.bin/mocha test/board.spec.js  --config=config/db.json "
+    "test:board": "rm .sqlite_tmp.db; NODE_ENV=test npm run sequelize:migrate; NODE_ENV=test ./node_modules/.bin/mocha test/board.spec.js  --config=config/db.json ",
+    "test:api:board": "rm .sqlite_tmp.db; NODE_ENV=test npm run sequelize:migrate; NODE_ENV=test ./node_modules/.bin/mocha test/api/board.api.spec.js  --config=config/db.json "
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
   "homepage": "https://github.com/august-festival/boiled-egg#readme",
   "dependencies": {
     "body-parser": "~1.17.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
     "config": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
