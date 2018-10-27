@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha $(find ./test/ -name '*.spec.js') --recursive",
+    "test": "NODE_ENV=test node_modules/.bin/mocha $(find ./test/ -name '*.spec.js') --recursive --config=config/db.json",
     "devel-start": "node ./bin/www ; # init database default env",
     "lsh": "sequelize db:migrate:undo:all --config=config/db.json --env=lsh && sequelize db:migrate --config=config/db.json --env=lsh && sequelize db:seed:all --config=config/db.json --env=lsh",
     "test-lsh": "node ./node_modules/mocha/bin/mocha ./test/permissionTeamBoard.spec.js",

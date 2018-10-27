@@ -1,1 +1,3 @@
-NODE_ENV=test npm test --config=config/db.json
+rm ./.sqlite_tmp.db;
+NODE_ENV=test npm run sequelize:migrate;
+npm test
