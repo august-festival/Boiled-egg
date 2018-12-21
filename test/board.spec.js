@@ -57,13 +57,12 @@ describe("보드", () => {
         const user_idx = 123; // dummy user 를 만들어사 가져오자...
         const created_board = await sut.create(user_idx);
         const board_idx = created_board.boardIdx;
-        const modified_board = await sut.delete(board_idx);
 
         // when
-        const boards = await sut.findByBoardIdx(board_idx);
+        const deleted_board = await sut.delete(board_idx);
 
         // then
-        console.log(boards.delFlag);
-        assert.equal(boards.delFlag, false);
+        console.log(deleted_board.delFlag);
+        assert.equal(deleted_board.delFlag, false);
     });
 });
