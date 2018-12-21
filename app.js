@@ -9,7 +9,8 @@ const bodyParser = require("body-parser");
 const passportConfig = require("./passport");
 
 const index = require("./routes/index");
-const users = require("./routes/users");
+const auth = require("./routes/api/v1/auth");
+const user = require("./routes/api/v1/user");
 const boards = require("./routes/api/v1/board");
 
 const app = express();
@@ -31,7 +32,8 @@ app.use(passport.session());
 
 passportConfig();
 app.use("/", index);
-app.use("/api/v1/users", users);
+app.use("/api/v1/auth", auth);
+app.use("/api/v1/user", user);
 app.use("/api/v1/boards", boards);
 
 // catch 404 and forward to error handler

@@ -1,5 +1,6 @@
 const passport = require("passport");
-const { user, oauth_id } = require("../models");
+const uuidv4 = require('uuid/v4');
+const { user, oauth_id, token } = require("../models");
 
 const certification = {
     start : (snsName) => {
@@ -77,15 +78,42 @@ const userObj = {
 
     },
     login : (req, res) => {
-
     },
     logout : (req, res) => {
         req.logout();        
         res.redirect("/");
+    },
+
+    loginForcely : (email) => {
+        return user.findOne({
+            where: {
+                email
+            }
+        }).then(function(user) {
+            const _token = uuidv4();
+
+            token.create({
+                userIdx: user.userIdx,
+                token: _token
+            });
+            user.dataValues.token = _token;
+
+            return user;
+        });
+    },
+    findByToken : (_token) => {
+        return token.findOne({
+            where: {
+                token: _token
+            }
+        }).then(function(tokenInfo) {
+            return user.findOne({
+                where: {
+                    userIdx: tokenInfo.userIdx
+                }
+            })
+        });
     }
 }
 
 module.exports = { certification, userObj };
-
-
-
