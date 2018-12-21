@@ -14,16 +14,5 @@
     "lsh": {
         "port": 3000,
         "db": "lsh"
-    },
-
-    "avoidAcl": {
-        "GET": [
-            "/",
-            "/api/v1/book/search"
-        ],
-        "POST": [
-            "/api/v1/user",
-            "/api/v1/image/add"
-        ]
     }
 }

@@ -1,0 +1,12 @@
+{
+    "avoidAcl": {
+        "GET": [
+            "/api/v1/user/about",
+            "/api/v1/user/login"
+        ],
+        "POST": [
+            "/api/v1/user",
+            "/api/v1/image/add"
+        ]
+    }
+}

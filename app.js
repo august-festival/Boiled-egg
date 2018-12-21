@@ -6,12 +6,15 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const bodyParser = require("body-parser");
+const config = require("config");
 const passportConfig = require("./passport");
 
 const index = require("./routes/index");
 const auth = require("./routes/api/v1/auth");
 const user = require("./routes/api/v1/user");
 const boards = require("./routes/api/v1/board");
+
+const userService = require("./service/userService").userObj;
 
 const app = express();
 
@@ -27,6 +30,33 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session({ secret: "egg", resave: true, saveUninitialized: false }));
+// header 검증 및 token 체크..
+app.use(function(req, res, next) {
+	// 커지면 express-acl 같은거로 변경...
+//	console.log(config)
+//	console.log(req.url);
+//	console.log(req.method);
+//	console.log(req.headers);
+    const err = new Error("Unauthorized");
+    err.status = 401;
+	
+	if (config.avoidAcl[req.method].filter(it => req.url.startsWith(it)).length > 0) { // url 여기 있으면 header 검사 안함.
+        next();
+	} else { // 아니면 해야지...
+        if (req.headers.token) {
+            userService.findByToken(req.params.token)
+                .then(function(user) {
+                    req.session.user = user
+                })
+                .catch(function(error) {
+                    next(err);
+                })
+
+        } else {
+            next(err);
+        }
+    }
+});
 app.use(passport.initialize());
 app.use(passport.session());
 
