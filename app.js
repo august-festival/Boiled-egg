@@ -31,8 +31,8 @@ app.use(passport.session());
 
 passportConfig();
 app.use("/", index);
-app.use("/users", users);
-app.use("/api/v1/", boards);
+app.use("/api/v1/users", users);
+app.use("/api/v1/boards", boards);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
