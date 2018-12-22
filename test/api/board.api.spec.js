@@ -15,14 +15,22 @@ chai.use(chaiHttp);
  */
 
 
+let _token = "";
 describe("board controller", () => {
-    before(() => {
+    before((done) => {
+        chai.request(server)
+            .get("/api/v1/user/login/hgd@daum.com")
+            .end((err, res) => {
+                // console.log(res);
+                _token = res.body.token;
+                done();
+            });
     });
 
     it("controller test", done => {
-        console.log("hello");
         chai.request(server)
             .get("/api/v1/boards")
+            .set('token', _token)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");

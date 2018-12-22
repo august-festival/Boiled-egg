@@ -33,10 +33,6 @@ app.use(session({ secret: "egg", resave: true, saveUninitialized: false }));
 // header 검증 및 token 체크..
 app.use(function(req, res, next) {
 	// 커지면 express-acl 같은거로 변경...
-//	console.log(config)
-//	console.log(req.url);
-//	console.log(req.method);
-//	console.log(req.headers);
     const err = new Error("Unauthorized");
     err.status = 401;
 	
@@ -44,9 +40,10 @@ app.use(function(req, res, next) {
         next();
 	} else { // 아니면 해야지...
         if (req.headers.token) {
-            userService.findByToken(req.params.token)
+            userService.findByToken(req.headers.token)
                 .then(function(user) {
-                    req.session.user = user
+                    req.headers.user = user
+                    next();
                 })
                 .catch(function(error) {
                     next(err);
