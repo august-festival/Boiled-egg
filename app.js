@@ -36,22 +36,26 @@ app.use(function(req, res, next) {
     const err = new Error("Unauthorized");
     err.status = 401;
 	
-	if (config.avoidAcl[req.method].filter(it => req.url.startsWith(it)).length > 0) { // url 여기 있으면 header 검사 안함.
-        next();
-	} else { // 아니면 해야지...
-        if (req.headers.token) {
-            userService.findByToken(req.headers.token)
-                .then(function(user) {
-                    req.headers.user = user
-                    next();
-                })
-                .catch(function(error) {
-                    next(err);
-                })
+	if (req.url.startsWith("/api")) {
+        if (config.avoidAcl[req.method].filter(it => req.url.startsWith(it)).length > 0) { // url 여기 있으면 header 검사 안함.
+            next();
+        } else { // 아니면 해야지...
+            if (req.headers.token) {
+                userService.findByToken(req.headers.token)
+                    .then(function(user) {
+                        req.headers.user = user
+                        next();
+                    })
+                    .catch(function(error) {
+                        next(err);
+                    })
 
-        } else {
-            next(err);
+            } else {
+                next(err);
+            }
         }
+    } else {
+        next();
     }
 });
 app.use(passport.initialize());
