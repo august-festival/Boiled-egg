@@ -15,16 +15,17 @@ router.delete("/:boardId", async (req, res) => {
     res.send(await boardService.delete(req.params.boardId));
 });
 
-router.get("/:id", async (req, res) => {
-    res.send(await boardService.findByUser(req.params.id));
+router.get("/:boardId", async (req, res) => {
+    res.send(await boardService.findByUser(req.params.boardId));
 });
 
 router.post("/", async (req, res) => {
     res.send(await boardService.create(res.id));
 });
 
-router.put("/", async(req, res)=> {
-    res.send(await boardService.modify(res.id, res.contents));
+router.put("/:boardId", async(req, res)=> {
+    // FIXME : 여기 대충만 적어놨어여
+    res.send(await boardService.modify(res.params.boardId, req.body));
 });
 
 router.delete("/", async(req, res)=> {

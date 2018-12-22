@@ -59,6 +59,19 @@ describe("board controller", () => {
     it("요청에 ?type=team 을 주면 내 팀들의 public, private 보드만, 반환값은 [] 형태로 나와야 함", done => {
     });
 
+    it("내 소유의 보드는 boardId 를 명시하여 보드의 이름을 바꿀 수 있음, 반환값은 {}, 수정된 board 정보가 내려오면 됨", done => {
+    });
+
+    it("내 소유의 보드는 boardId 를 명시하여 보드의 visibility을 바꿀 수 있음, 반환값은 {}, 수정된 board 정보가 내려오면 됨", done => {
+    });
+
+    it("내 소유의 보드는 boardId 를 명시하여 보드를 삭제 할 수 있음, 반환값은 {}형태, status code 200", done => {
+    });
+
+    it("post method 로 board 를 생성 할 수 있음, 반환값은 생성한 보드의 정보를 주면 됨", done => {
+    });
+
+
     // it("보드 목록을 정상적으로 조회하면 200으로 array", async () => {
     //     // given
     //     // when

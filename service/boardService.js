@@ -27,6 +27,8 @@ const board = {
         });
     },
     modify(boardIdx, res) {
+        // FIXME : 여기 대충만 적어놨어여
+
         // res에 바꿀 내용 다 들어있음
         const targetBoard = this.findByBoardIdx(boardIdx);
         // 이름만 우선
