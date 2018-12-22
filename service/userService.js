@@ -102,11 +102,15 @@ const userObj = {
                 token: _token
             }
         }).then(function(tokenInfo) {
-            return user.findOne({
-                where: {
-                    userIdx: tokenInfo.userIdx
-                }
-            })
+            if (tokenInfo) {
+                return user.findOne({
+                    where: {
+                        userIdx: tokenInfo.userIdx
+                    }
+                })
+            } else {
+                throw new Error("Not Exist Token")
+            }
         });
     },
     findByEmail : (email) => {
