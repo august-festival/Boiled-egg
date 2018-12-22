@@ -52,6 +52,13 @@ describe("board controller", () => {
     it("PRIVATE 한 다른 사용자의 보드는 삭제할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
     });
 
+    it("요청에 ?type=all 을 주면 내가 볼 수 있는 모든 보드를 조회함, 반환값은 [] 형태로 나와야 함", done => {
+    });
+    it("요청에 ?type=my 을 주면 내 소유의 public, private 보드만, 반환값은 [] 형태로 나와야 함", done => {
+    });
+    it("요청에 ?type=team 을 주면 내 팀들의 public, private 보드만, 반환값은 [] 형태로 나와야 함", done => {
+    });
+
     // it("보드 목록을 정상적으로 조회하면 200으로 array", async () => {
     //     // given
     //     // when
