@@ -18,10 +18,25 @@ const teams = require("./routes/api/v1/team");
 const userService = require("./service/userService").userObj;
 
 const app = express();
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(require('connect-history-api-fallback')({
+	verbose: true,
+    rewrites: [
+        { from: /^\/static.*$/ ,  
+            to: function(context) {
+                return context.parsedUrl.pathname;
+            }},
+        {from: /^\/api.*$/ ,  
+            to: function(context) {
+                return context.parsedUrl.pathname;
+            }},
+        {from: /^\/(?!api).*$/ , to: 'index.html'}
+    ]
+}))
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,7 +44,6 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 app.use(session({ secret: "egg", resave: true, saveUninitialized: false }));
 // header 검증 및 token 체크..
 app.use(function(req, res, next) {
