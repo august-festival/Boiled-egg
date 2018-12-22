@@ -26,7 +26,15 @@ module.exports = {
         phone : "01023643023",
         languageType : "KOR",
         delFlag : "N",
-      },      
+      },    
+      {
+        nickName : "forTest",
+        email: "tester@gmail.com",
+        name: "테스터아이디",
+        phone : "01023643023",
+        languageType : "KOR",
+        delFlag : "N",
+      }  
     ], {});
   },
   down: (queryInterface, Sequelize) => {
