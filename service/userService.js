@@ -31,12 +31,19 @@ const certification = {
                 break;
         }
     },
-    redirect : (req, res) => {
-        const isIdx = req.session.passport.user[0] ? true : false;
-        if(isIdx) {
+    redirect : async (req, res) => {
+        const userEmail = req.session.passport.user.email;
+
+        if(userEmail) {
+            const _user = await this.findByEmail(email);
+            const _token = await this.getUserToken(_user);
+            _user.dataValues.token = _token;
+
+            res.set("token", _token)
+
             return res.redirect('/');
         } else {
-            return res.redirect('/users');
+            return res.redirect('/login');
         }
     }
 };
@@ -84,22 +91,12 @@ const userObj = {
         res.redirect("/");
     },
 
-    loginForcely : (email) => {
-        return user.findOne({
-            where: {
-                email
-            }
-        }).then(function(user) {
-            const _token = uuidv4();
+    loginForcely : async (email) => {
+        const _user = await this.findByEmail(email);
+        const _token = await this.getUserToken(_user);
+        _user.dataValues.token = _token;
 
-            token.create({
-                userIdx: user.userIdx,
-                token: _token
-            });
-            user.dataValues.token = _token;
-
-            return user;
-        });
+        return _user;
     },
     findByToken : (_token) => {
         return token.findOne({
@@ -113,7 +110,23 @@ const userObj = {
                 }
             })
         });
+    },
+    findByEmail : (email) => {
+        return user.findOne({
+            where: {
+                email
+            }
+        });
     }
+}
+
+function getUserToken(user) {
+    const _token = uuidv4();
+
+    return token.create({
+        userIdx: user.userIdx,
+        token: _token
+    }).then(() => _token);
 }
 
 module.exports = { certification, userObj };
