@@ -10,6 +10,7 @@
     "test-lsh": "node ./node_modules/mocha/bin/mocha ./test/permissionTeamBoard.spec.js",
     "start": "node ./bin/www",
     "sequelize:remigrate": "rm .sqlite_tmp.db; NODE_ENV=test npm run sequelize:migrate ; NODE_ENV=test npm run sequelize:seed:all",
+    "sequelize:remigrate:prod": "NODE_ENV=production npm run sequelize:migrate ; NODE_ENV=production npm run sequelize:seed:all",
     "sequelize:migrate": "./node_modules/.bin/sequelize db:migrate --config=config/db.json",
     "sequelize:seed:all": "./node_modules/.bin/sequelize db:seed:all --config=config/db.json",
     "test:board": "NODE_ENV=test ./node_modules/.bin/mocha test/board.spec.js  --config=config/db.json ",
