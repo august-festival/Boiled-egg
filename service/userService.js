@@ -39,9 +39,7 @@ const certification = {
             const _token = await this.getUserToken(_user);
             _user.dataValues.token = _token;
 
-            res.set("token", _token)
-
-            return res.redirect('/');
+            return res.redirect('/?t='+_token);
         } else {
             return res.redirect('/login');
         }
