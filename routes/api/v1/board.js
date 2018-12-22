@@ -1,5 +1,8 @@
 const express = require("express");
 const boardService = require("../../../service/boardService");
+const boardTypeService = require("../../../service/boardTypeService");
+const permissionTeamBoardService = require("../../../service/permissionTeamBoardService");
+const permissionUserService = require("../../../service/permissionUserService");
 
 const router = express.Router();
 
@@ -9,7 +12,22 @@ router.get("/", async (req, res) => {
     ));
 });
 router.get("/:boardId", async (req, res) => {
-    res.send(await boardService.findByBoardIdx(req.params.boardId));
+    // res.send(await boardService.findByBoardIdx(req.params.boardId));
+
+    const boardIdx = req.params.boardId;
+    const boardType = await boardTypeService('board', boardIdx);
+    let permission = null;
+    if(boardType === 'TEAM') {
+        permission = permissionUserService('board');
+    }else if(boardType === 'USER') {
+        permission = permissionTeamBoard('board');
+    }
+    const isRole = await permission.select(userIdx, boardIdx);
+    if(isRole){
+       res.send(await boardService.findByBoardIdx(req.params.boardId));
+    }else{
+        res.status(403).render();
+    }
 });
 router.delete("/:boardId", async (req, res) => {
     res.send(await boardService.delete(req.params.boardId));

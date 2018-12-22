@@ -15,6 +15,18 @@ module.exports = {
         boardType: 'USER',
         visibilityType: 'PRIVATE'
       },
+      {
+        userIdx: 4,
+        name: '프라이빗 테스트 보드',
+        boardType: 'USER',
+        visibilityType: 'PRIVATE'
+      },
+      {
+        userIdx: 4,
+        name: '퍼블릭 테스트 보드',
+        boardType: 'USER',
+        visibilityType: 'PUBLIC'
+      }
     ], {});
   },
   down: (queryInterface, Sequelize) => {
