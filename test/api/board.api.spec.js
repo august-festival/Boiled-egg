@@ -27,7 +27,7 @@ describe("board controller", () => {
             });
     });
 
-    it("controller test", done => {
+    it("현재 로그인 한 사용자의 보드 목록을 가져올 때, 반환값은 array 로 나오고, 0보다 크거나 같아야 함", done => {
         chai.request(server)
             .get("/api/v1/boards")
             .set('token', _token)
@@ -37,6 +37,19 @@ describe("board controller", () => {
                 res.body.length.should.gte(0);
                 done();
             });
+    });
+    it("PRIVATE 한 다른 사용자의 보드는 조회할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
+    });
+    it("PRIVATE 한 다른 사용자의 보드는 수정할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
+    });
+    it("PRIVATE 한 다른 사용자의 보드는 삭제할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
+    });
+
+    it("PRIVATE 한 다른 사용자의 보드는 조회할 수 있음, 반환값은 {} 형태로 나와야 함", done => {
+    });
+    it("PRIVATE 한 다른 사용자의 보드는 수정할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
+    });
+    it("PRIVATE 한 다른 사용자의 보드는 삭제할 수 없음, status 값이 403, 이후 서버 로직은 타면 안됨", done => {
     });
 
     // it("보드 목록을 정상적으로 조회하면 200으로 array", async () => {
