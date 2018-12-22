@@ -655,3 +655,4 @@ ASALocalRun/
 
 ## passport strategy secret file
 common/.strategySecret.js
+.idea

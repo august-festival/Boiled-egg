@@ -13,6 +13,7 @@ const index = require("./routes/index");
 const auth = require("./routes/api/v1/auth");
 const user = require("./routes/api/v1/user");
 const boards = require("./routes/api/v1/board");
+const teams = require("./routes/api/v1/team");
 
 const userService = require("./service/userService").userObj;
 
@@ -62,6 +63,7 @@ app.use("/", index);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/user", user);
 app.use("/api/v1/boards", boards);
+app.use("/api/v1/teams", teams);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
